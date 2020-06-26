@@ -12,10 +12,13 @@ def getData():
         file.write(json_object)
         file.close()
 
+
 def readData(prof_first, prof_last):
     data = json.load(open("profData.json"))
     teachers_info = data['response']["docs"]
     for teacher_info in teachers_info:
         if teacher_info['teacherfirstname_t'] == prof_first and teacher_info['teacherlastname_t'] == prof_last:
             print(teacher_info)
-            break   
+            break
+
+getData()
