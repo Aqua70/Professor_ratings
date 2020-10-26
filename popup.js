@@ -1,6 +1,7 @@
 let messageExists = false
 let currentMessage = undefined
 
+
 const createMessage = (response) =>{
     messageExists = true
     currentMessage = document.createElement("p")
@@ -17,11 +18,9 @@ const createMessage = (response) =>{
     }
 }
 
-
-const download = () =>{
+const triggerDisplay = () =>{
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-        const inputElement = document.getElementById("name-input")
-        chrome.tabs.sendMessage(tabs[0].id, {download : true, name : inputElement.value}, (response) => {
+        chrome.tabs.sendMessage(tabs[0].id, {display : true}, (response) => {
             if (chrome.runtime.lastError){
                 response = {success : 0, message : "Go to a BBC video and wait until the BBC video has loaded"}
             }
@@ -39,5 +38,5 @@ const download = () =>{
 
 const button = document.getElementById("button")
 
-button.addEventListener('click', download)
+button.addEventListener('click', triggerDisplay)
 
