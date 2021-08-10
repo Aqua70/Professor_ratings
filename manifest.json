@@ -1,12 +1,13 @@
 {
   "manifest_version": 2,
-  "name": "My Cool Extension",
+  "name": "Professor Rating Embedder UofT",
   "version": "1.0.0",
-  "permissions": ["storage", "declarativeContent"],
   "content_scripts": [
     {
       "matches": [
-        "<all_urls>"
+        "https://timetable.iit.artsci.utoronto.ca/*",
+        "https://acorn.utoronto.ca/*",
+        "https://solr-aws-elb-production.ratemyprofessors.com//solr/rmp/select/?solrformat=true&rows=4000&wt=json&json.wrf=noCB&callback=noCB&q=*%3A*+AND+schoolid_s%3A1484&defType=edismax&qf=teacherfirstname_t%5E2000+teacherlastname_t%5E2000+teacherfullname_t%5E2000+autosuggest&bf=pow(total_number_of_ratings_i%2C2.1)&sort=total_number_of_ratings_i+desc&siteName=rmp&rows=20&start=0&fl=pk_id+teacherfirstname_t+teacherlastname_t+total_number_of_ratings_i+averageratingscore_rf+schoolid_s&fq="
       ],
       "js": ["content.js"]
     }
@@ -30,13 +31,7 @@
   "32": "images/yellowStar32.png",
   "48": "images/yellowStar48.png",
   "128": "images/yellowStar128.png"
-},
-"permissions": [
-  "<all_urls>", "tabs", "webNavigation", "https://solr-aws-elb-production.ratemyprofessors.com//solr/rmp/select/?solrformat=true&rows=4000&wt=json&json.wrf=noCB&callback=noCB&q=*%3A*+AND+schoolid_s%3A1484&defType=edismax&qf=teacherfirstname_t%5E2000+teacherlastname_t%5E2000+teacherfullname_t%5E2000+autosuggest&bf=pow(total_number_of_ratings_i%2C2.1)&sort=total_number_of_ratings_i+desc&siteName=rmp&rows=20&start=0&fl=pk_id+teacherfirstname_t+teacherlastname_t+total_number_of_ratings_i+averageratingscore_rf+schoolid_s&fq="
-],
-"web_accessible_resources": [
-    "profData.json"
-]
+}
 
 
 
