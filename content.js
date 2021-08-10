@@ -57,7 +57,7 @@ function acornProffesorRatings(teacherJSON){
         var name = prof.innerText;
 
         var firstName = name.substring(0, name.indexOf(' '));
-        var lastName= name.substring(name.indexOf(' ') + 1).replace(/ /, "-");
+        var lastName= name.substring(name.lastIndexOf(' ') + 1).replace(/ /, "-");
         var prof_object = getProfObject(teacherJSON, firstName, lastName);
         var rating = prof_object.rating;
 
